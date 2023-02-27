@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7baq6swlxhqq"]
+
+[ext_resource type="FontFile" uid="uid://bjb5n85mku7e6" path="res://fonts/orange-juice-2.0.ttf" id="1_je0if"]
+[ext_resource type="PackedScene" uid="uid://b0by2dcaewnkh" path="res://gamelevel.tscn" id="2_g7558"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x34xk"]
+bg_color = Color(0, 0, 0.0392157, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2leup"]
+bg_color = Color(0, 0, 0.0392157, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7r01"]
+bg_color = Color(0, 0, 0.0392157, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehdi2"]
+bg_color = Color(0, 0, 0.0392157, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0mjc"]
+bg_color = Color(0, 0, 0.0392157, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b1fi"]
+bg_color = Color(0, 0, 0.0392157, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.25098, 0.247059, 0.368627, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_je0if")
+theme_override_font_sizes/font_size = 100
+text = "Hacker Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+language = "en_US"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="StartMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/StartMargin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_je0if")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_x34xk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2leup")
+text = "Start"
+
+[node name="OptionsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/OptionsMargin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_je0if")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_w7r01")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehdi2")
+text = "Options"
+
+[node name="QuitMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/QuitMargin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_je0if")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0mjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6b1fi")
+text = "Quit"
+
+[node name="Gamelevel" parent="." instance=ExtResource("2_g7558")]
