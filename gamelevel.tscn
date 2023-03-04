@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0by2dcaewnkh"]
+[gd_scene load_steps=5 format=3 uid="uid://b0by2dcaewnkh"]
 
 [ext_resource type="Texture2D" uid="uid://5jkllhwq07ge" path="res://floor_tiles.PNG" id="1_00eg5"]
+[ext_resource type="Script" path="res://gamelevel.gd" id="1_qmy7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3lp3"]
 texture = ExtResource("1_00eg5")
@@ -216,6 +217,7 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_e3lp3")
 
 [node name="Gamelevel" type="Node2D"]
+script = ExtResource("1_qmy7g")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_l7fdn")
