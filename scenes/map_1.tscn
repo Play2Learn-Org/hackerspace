@@ -4,5 +4,7 @@
 
 [node name="Map1" type="Node2D"]
 
+[node name="Map" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_fb6xu")]
 position = Vector2(256, 256)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mdkdetaxlxdx"]
+
+[ext_resource type="Script" path="res://scenes/Maze.gd" id="1_d8n7f"]
+
+[node name="Maze" type="TileMap"]
+cell_quadrant_size = 64
+format = 2
+script = ExtResource("1_d8n7f")
