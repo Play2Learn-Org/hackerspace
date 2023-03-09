@@ -4,6 +4,8 @@ extends TileMap
 @export var height = 25
 @export var stepsize = 2
 
+const EMTPY_TILE = Vector2i(-1, -1)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# TODO: change to Vector2i
@@ -12,24 +14,32 @@ func _ready():
 	# 1. choose starting tile and add to visited and add to stack
 	randomize()
 	var visited = {}
-	var stack = [Vector2(randi() % width, randi() % height)]
+	var stack = [Vector2i(randi() % width, randi() % height)]
 	
 	# 2. choose current from stack.pop() else end map generation
 	while stack:
-		var current: Vector2 = stack.pop_back()
-		var next: Vector2
+		var current: Vector2i = stack.pop_back()
+		print(current)
+		print(self.get_cell_atlas_coords(1, current))
+		print(current + Vector2i.RIGHT)
+		print(self.get_cell_atlas_coords(1, (current + Vector2i.RIGHT)))
+		print(self.get_surrounding_cells(current))
+		#self.set_cell(1, current,0,Vector2i(1,3),0)
+		print("after setting current cell")
+		print(self.get_cell_atlas_coords(1, current))
+		print(self.get_surrounding_cells(current))
+		var next: Vector2i
+		return
 		# 3. choose random neighbour until neighbour not visited else remove current from stack
-		var neighbours = []
-		if current.y+1 <= height: neighbours.append(Vector2(current.x, current.y+1))
-		if current.x+1 <= width: neighbours.append(Vector2(current.x+1, current.y))
-		if current.y-1 >= 0: neighbours.append(Vector2(current.x, current.y-1))
-		if current.x-1 >= 0: neighbours.append(Vector2(current.x-1, current.y))
-		# TODO: What about neighbours empty?
+		var neighbours = self.get_surrounding_cells(current)
 		while neighbours:
 			next = neighbours.pop_at(randi() % neighbours.size())
 			if next not in visited.keys():
+				# 3. create neighbor with open-back if doesn't exist else: open-back of neighbour
+				if self.get_cell_atlas_coords(1, next) == EMTPY_TILE:
+					# TODO: draw the tile, i.e. draw walls around it where necessary or take some away
+					pass
 				break
-	# 3. create neighbor with open-back if doesn't exist else: open-back of neighbour
 	self.get_cell 
 	# 4. open-forward of current tile
 	# 5. add neighbour to visited and stack

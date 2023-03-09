@@ -1,8 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://mdkdetaxlxdx"]
+[gd_scene load_steps=5 format=3 uid="uid://mdkdetaxlxdx"]
 
+[ext_resource type="Texture2D" uid="uid://d3ajkexsfkikn" path="res://tilesets/objects.PNG" id="1_cbncc"]
 [ext_resource type="Script" path="res://scenes/Maze.gd" id="1_d8n7f"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ve4ph"]
+texture = ExtResource("1_cbncc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_56ppp"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_ve4ph")
+
 [node name="Maze" type="TileMap"]
+tile_set = SubResource("TileSet_56ppp")
 cell_quadrant_size = 64
 format = 2
 script = ExtResource("1_d8n7f")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bej8rttniun2y"]
+[gd_scene load_steps=10 format=3 uid="uid://bej8rttniun2y"]
 
 [ext_resource type="FontFile" uid="uid://bjb5n85mku7e6" path="res://fonts/orange-juice-2.0.ttf" id="1_je0if"]
 [ext_resource type="Script" path="res://scenes/mainmenu.gd" id="1_jg0n0"]
+[ext_resource type="PackedScene" uid="uid://mdkdetaxlxdx" path="res://scenes/maze.tscn" id="2_85cm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x34xk"]
 bg_color = Color(0, 0, 0.0392157, 0.392157)
@@ -52,6 +53,8 @@ script = ExtResource("1_jg0n0")
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.25098, 0.247059, 0.368627, 1)
+
+[node name="Maze" parent="." instance=ExtResource("2_85cm7")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 1152.0
