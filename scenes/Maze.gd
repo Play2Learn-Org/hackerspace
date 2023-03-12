@@ -1,7 +1,9 @@
 extends TileMap
 
-@export var width = 18
-@export var height = 10
+@export var start_x = 0
+@export var start_y = 1
+@export var width = 19
+@export var height = 13
 @export var stepsize = 2
 
 const EMTPY_TILE = Vector2i(-1, -1)
@@ -10,8 +12,8 @@ const WALL_TILE = Vector2i(0,0)
 
 # check if the coordinates are actually on the map
 func on_map(to_check: Vector2i) -> bool:
-	return (to_check.x >= 0 and to_check.x < width
-			and to_check.y >= 0 and to_check.y < height)
+	return (to_check.x >= start_x and to_check.x < width
+			and to_check.y >= start_y and to_check.y < height)
 
 
 # set a floor tile and surrounding wall tiles correctly
@@ -28,19 +30,20 @@ func excavate(to_excavate: Vector2i, source_id: int, floor_tile: Vector2i, wall_
 		to_excavate + Vector2i.LEFT,
 	]
 	for current in neighbourhood:
-		if !on_map(current):
-			continue
 		if self.get_cell_atlas_coords(0, current) == floor_tile:
 			continue
 		self.set_cell(0, current, source_id,
 				floor_tile if current == to_excavate else wall_tile)
 
+func random_odd_num(upper_bound: int) -> int:
+	var rand = randi() % ((upper_bound / 2) - 1)
+	return (rand * 2) + 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	# track nodes we could excavate from next
-	var excavated = [Vector2i(randi() % width, randi() % height)]
+	var excavated = [Vector2i(random_odd_num(width), random_odd_num(height))]
 	while excavated:
 		var current: Vector2i = excavated[-1]
 		var directions = [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]
