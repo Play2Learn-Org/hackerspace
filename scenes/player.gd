@@ -9,6 +9,14 @@ var sprite_direction = "Down": get = _get_sprite_direction
 
 @onready var sprite = $AnimatedSprite2D
 
+func _ready():
+	self.visible = false
+	$"/root/Signals".connect("placed_stairs", func (position: Vector2i, cell_quadrant_size: int) -> void:
+		print("hi", position)
+		self.position = position * cell_quadrant_size
+		self.visible = true
+	)
+
 func _physics_process(_delta):
 	velocity = input_direction * SPEED
 	move_and_slide()

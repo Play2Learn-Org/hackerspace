@@ -83,4 +83,6 @@ func _ready():
 				break
 	endpoints.shuffle()
 	self.set_cell(0,endpoints[0],0,Vector2i(1,0),0)
+	$"/root/Signals".placed_exit.emit(endpoints[0], cell_quadrant_size)
 	self.set_cell(0,endpoints[1],0,Vector2i(2,0),0)
+	$"/root/Signals".placed_stairs.emit(endpoints[1], cell_quadrant_size)
