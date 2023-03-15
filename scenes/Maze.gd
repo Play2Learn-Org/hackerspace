@@ -9,6 +9,7 @@ extends TileMap
 const EMTPY_TILE = Vector2i(-1, -1)
 const FLOOR_TILE = Vector2i(3,0)
 const WALL_TILE = Vector2i(0,0)
+const TILESET_ID = 2
 
 # check if the coordinates are actually on the map
 func on_map(to_check: Vector2i) -> bool:
@@ -52,6 +53,16 @@ func only_one_path(point: Vector2i) -> bool:
 			wallcount+=1
 	return wallcount == 3
 
+# find the position to put a door directly in front of a staircase/exit
+func get_single_free_neighbour(here: Vector2i) -> Vector2i:
+	for direction in [Vector2i.UP, Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT]:
+		if self.get_cell_atlas_coords(0, here + direction) == FLOOR_TILE:
+			return here + direction
+	print("ERROR: didn't find an empty neighbour, putting the door outside the visible area.")
+	return Vector2i(-1,-1)
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -68,7 +79,7 @@ func _ready():
 					and on_map(current + stepsize * direction)):
 				for i in range(0, stepsize+1):
 					await get_tree().create_timer(0.02).timeout
-					self.excavate(current + i * direction, 0, Vector2i(3,0), Vector2i(0,0))
+					self.excavate(current + i * direction, TILESET_ID, Vector2i(3,0), Vector2i(0,0))
 				excavated.append(current + stepsize * direction)
 				break
 			if directions.size() == 0:
@@ -82,7 +93,12 @@ func _ready():
 				# However, my tile generation does not look for staircases. How to handle?
 				break
 	endpoints.shuffle()
-	self.set_cell(0,endpoints[0],0,Vector2i(1,0),0)
+	self.set_cell(0,endpoints[0],TILESET_ID,Vector2i(1,0),0)
 	$"/root/Signals".placed_exit.emit(endpoints[0], cell_quadrant_size)
-	self.set_cell(0,endpoints[1],0,Vector2i(2,0),0)
+	var door_place = get_single_free_neighbour(endpoints[0])
+	self.set_cell(0, door_place, TILESET_ID, Vector2i(0,1))
+	$"/root/Signals".placed_door.emit(door_place, cell_quadrant_size)
+	self.set_cell(0,endpoints[1],TILESET_ID,Vector2i(2,0),0)
 	$"/root/Signals".placed_stairs.emit(endpoints[1], cell_quadrant_size)
+	self.set_cell(0, endpoints[2], TILESET_ID, Vector2(0,2))
+	$"/root/Signals".placed_key.emit(endpoints[2], cell_quadrant_size)

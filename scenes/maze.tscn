@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://mdkdetaxlxdx"]
+[gd_scene load_steps=7 format=3 uid="uid://mdkdetaxlxdx"]
 
-[ext_resource type="Texture2D" uid="uid://d3ajkexsfkikn" path="res://tilesets/objects.PNG" id="1_cbncc"]
+[ext_resource type="Texture2D" uid="uid://d3ajkexsfkikn" path="res://tilesets/objects-v1.PNG" id="1_apfn2"]
+[ext_resource type="Texture2D" uid="uid://sg356fe8w8ug" path="res://tilesets/objects.PNG" id="1_cbncc"]
 [ext_resource type="Script" path="res://scenes/Maze.gd" id="1_d8n7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ve4ph"]
-texture = ExtResource("1_cbncc")
+texture = ExtResource("1_apfn2")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -56,10 +57,41 @@ texture_region_size = Vector2i(64, 64)
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81uyf"]
+texture = ExtResource("1_cbncc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_56ppp"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ve4ph")
+sources/2 = SubResource("TileSetAtlasSource_81uyf")
 
 [node name="Maze" type="TileMap"]
 tile_set = SubResource("TileSet_56ppp")
