@@ -8,20 +8,35 @@ var input_direction: get = _get_input_direction
 var sprite_direction = "Down": get = _get_sprite_direction
 
 @onready var sprite = $AnimatedSprite2D
+@onready var Signals = $"/root/Signals"
+
+@export var keys = 0
 
 func _ready():
 	self.visible = false
-	$"/root/Signals".connect("placed_stairs", func (position: Vector2i, cell_quadrant_size: int) -> void:
-		print("hi", position)
+	Signals.connect("placed_stairs", func (position: Vector2i, cell_quadrant_size: int) -> void:
+		print("player at", position)
 		self.position = position * cell_quadrant_size
 		self.visible = true
+	)
+	Signals.connect("key_touched", func () -> void:
+		print("I, the player, found a key, yay")
+		keys += 1
+	)
+	Signals.connect("door_touched" , func () -> void:
+		# TODO all of this sounds more like a global game logic rather than Player object specific?
+		if keys > 0:
+			keys -= 1
+			print("I,the player, open the door")
+			Signals.door_opened.emit()
+		else:
+			print("I, the player, need a key!")
 	)
 
 func _physics_process(_delta):
 	velocity = input_direction * SPEED
-	move_and_slide()
-	
 	set_animation("idle" if velocity == Vector2.ZERO else "walk")
+	move_and_slide()
 
 func set_animation(animation):
 	sprite.play(animation + sprite_direction)

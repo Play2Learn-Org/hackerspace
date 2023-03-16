@@ -1,10 +1,13 @@
 extends TileMap
 
+@onready var Signals = $"/root/Signals"
+
 @export var start_x = 0
 @export var start_y = 1
 @export var width = 19
 @export var height = 13
 @export var stepsize = 2
+@export var sleep_time = 0.001
 
 const EMTPY_TILE = Vector2i(-1, -1)
 const FLOOR_TILE = Vector2i(3,0)
@@ -78,7 +81,7 @@ func _ready():
 			if (self.get_cell_atlas_coords(0, current + stepsize * direction) != FLOOR_TILE
 					and on_map(current + stepsize * direction)):
 				for i in range(0, stepsize+1):
-					await get_tree().create_timer(0.02).timeout
+					await get_tree().create_timer(sleep_time).timeout
 					self.excavate(current + i * direction, TILESET_ID, Vector2i(3,0), Vector2i(0,0))
 				excavated.append(current + stepsize * direction)
 				break
@@ -94,11 +97,9 @@ func _ready():
 				break
 	endpoints.shuffle()
 	self.set_cell(0,endpoints[0],TILESET_ID,Vector2i(1,0),0)
-	$"/root/Signals".placed_exit.emit(endpoints[0], cell_quadrant_size)
+	Signals.placed_exit.emit(endpoints[0], cell_quadrant_size)
 	var door_place = get_single_free_neighbour(endpoints[0])
-	self.set_cell(0, door_place, TILESET_ID, Vector2i(0,1))
-	$"/root/Signals".placed_door.emit(door_place, cell_quadrant_size)
+	Signals.placed_door.emit(door_place, cell_quadrant_size)
 	self.set_cell(0,endpoints[1],TILESET_ID,Vector2i(2,0),0)
-	$"/root/Signals".placed_stairs.emit(endpoints[1], cell_quadrant_size)
-	self.set_cell(0, endpoints[2], TILESET_ID, Vector2(0,2))
-	$"/root/Signals".placed_key.emit(endpoints[2], cell_quadrant_size)
+	Signals.placed_stairs.emit(endpoints[1], cell_quadrant_size)
+	Signals.placed_key.emit(endpoints[2], cell_quadrant_size)

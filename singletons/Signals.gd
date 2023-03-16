@@ -6,3 +6,7 @@ signal placed_door(position: Vector2i, cell_quadrant_size: int)
 signal placed_key(position: Vector2i, cell_quadrant_size: int)
 signal closed_door(position: Vector2i, cell_quadrant_size: int)
 signal opened_door(position: Vector2i, cell_quadrant_size: int)
+
+signal key_touched
+signal door_touched
+signal door_opened
