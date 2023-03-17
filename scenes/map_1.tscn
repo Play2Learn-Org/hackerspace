@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://crt8xry1q5dpg"]
+[gd_scene load_steps=7 format=3 uid="uid://crt8xry1q5dpg"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wuu25prh7c" path="res://scenes/player.tscn" id="1_fb6xu"]
 [ext_resource type="PackedScene" uid="uid://mdkdetaxlxdx" path="res://scenes/maze.tscn" id="1_lc4px"]
+[ext_resource type="Script" path="res://scenes/map_1.gd" id="1_ucdtq"]
 [ext_resource type="PackedScene" uid="uid://ecsfwh2s3kp0" path="res://scenes/key.tscn" id="3_2qob3"]
 [ext_resource type="PackedScene" uid="uid://b04vwheqvkexy" path="res://scenes/door.tscn" id="4_roxry"]
+[ext_resource type="PackedScene" uid="uid://d3qso5vdq685y" path="res://scenes/pause_menu.tscn" id="6_d6wbv"]
 
 [node name="Map1" type="Node2D"]
+script = ExtResource("1_ucdtq")
+
+[node name="Pause Menu" parent="." instance=ExtResource("6_d6wbv")]
 
 [node name="Maze" parent="." instance=ExtResource("1_lc4px")]
 position = Vector2(-1, 0)
-
-[node name="Map" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_fb6xu")]
 position = Vector2(-128, 0)
