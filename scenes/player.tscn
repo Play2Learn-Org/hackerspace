@@ -171,6 +171,6 @@ shape = SubResource("CapsuleShape2D_euasg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sjha2")
-animation = &"idleDown"
-frame_progress = 0.216994
+animation = &"walkLeft"
+frame_progress = 0.436709
 centered = false

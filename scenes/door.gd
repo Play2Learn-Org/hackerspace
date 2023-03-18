@@ -13,7 +13,6 @@ func _ready():
 	Signals.connect("door_opened", func () -> void:
 		$AnimatedSprite2D.animation = "open"
 		$StaticBody2D/StaticCollisionShape.set_deferred("disabled", true)
-		
 	)
 
 
