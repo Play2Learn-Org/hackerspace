@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crt8xry1q5dpg"]
+[gd_scene load_steps=9 format=3 uid="uid://crt8xry1q5dpg"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wuu25prh7c" path="res://scenes/player.tscn" id="1_fb6xu"]
 [ext_resource type="PackedScene" uid="uid://mdkdetaxlxdx" path="res://scenes/maze.tscn" id="1_lc4px"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ecsfwh2s3kp0" path="res://scenes/key.tscn" id="3_2qob3"]
 [ext_resource type="PackedScene" uid="uid://b04vwheqvkexy" path="res://scenes/door.tscn" id="4_roxry"]
 [ext_resource type="PackedScene" uid="uid://c5lmrjruwxfrv" path="res://scenes/pausemenu.tscn" id="6_2q4b8"]
+[ext_resource type="Script" path="res://scenes/keycounter.gd" id="7_gdkl2"]
+[ext_resource type="FontFile" uid="uid://bjb5n85mku7e6" path="res://fonts/orange-juice-2.0.ttf" id="7_opci6"]
 
 [node name="Map1" type="Node2D"]
 script = ExtResource("1_ucdtq")
@@ -21,6 +23,44 @@ position = Vector2(-64, 0)
 
 [node name="Door" parent="." instance=ExtResource("4_roxry")]
 position = Vector2(-256, 0)
+
+[node name="HUD Top Left" type="MarginContainer" parent="."]
+offset_right = 200.0
+offset_bottom = 47.0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 22
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD Top Left"]
+layout_mode = 2
+
+[node name="keyattribute" type="Label" parent="HUD Top Left/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_opci6")
+theme_override_font_sizes/font_size = 25
+text = "Keys:"
+
+[node name="keycounter" type="Label" parent="HUD Top Left/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_opci6")
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("7_gdkl2")
+
+[node name="VSeparator" type="VSeparator" parent="HUD Top Left/HBoxContainer"]
+layout_mode = 2
+
+[node name="levelattribute" type="Label" parent="HUD Top Left/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_opci6")
+theme_override_font_sizes/font_size = 25
+text = "Level:"
+
+[node name="levelcounter" type="Label" parent="HUD Top Left/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_opci6")
+theme_override_font_sizes/font_size = 25
+text = "0
+"
 
 [node name="pausemenu" parent="." instance=ExtResource("6_2q4b8")]
 custom_minimum_size = Vector2(1216, 830)
