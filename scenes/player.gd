@@ -12,25 +12,40 @@ var sprite_direction = "Down": get = _get_sprite_direction
 
 @export var keys = 0
 
+# to remember the reset position that is set by the game master at instantiating the player at a map
+@onready var old_pos : Vector2i = Vector2i(-1,-1)
+
+func reset_position():
+	self.position = self.old_pos
+	self.visible = true
+
 func _ready():
 	self.visible = false
-	Signals.connect("placed_stairs", func (position: Vector2i, cell_quadrant_size: int) -> void:
-		print("player at", position)
-		self.position = position * cell_quadrant_size
+	Signals.connect("placed_stairs", func (target_pos: Vector2i, cell_quadrant_size: int) -> void:
+		print("player at", target_pos)
+		self.old_pos = self.position
+		self.position = target_pos * cell_quadrant_size
 		self.visible = true
 	)
 	Signals.connect("key_touched", func () -> void:
 		print("I, the player, found a key, yay")
 		keys += 1
 	)
-	Signals.connect("door_touched" , func () -> void:
+	Signals.connect("door_touched" , func (state: String) -> void:
 		# TODO all of this sounds more like a global game logic rather than Player object specific?
+		if state != "closed":
+			print("door is already open")
+			return
+		
 		if keys > 0:
 			keys -= 1
 			print("I,the player, open the door")
 			Signals.door_opened.emit()
 		else:
 			print("I, the player, need a key!")
+	)
+	Signals.connect("next_level", func () -> void:
+		self.reset_position()
 	)
 
 func _physics_process(_delta):

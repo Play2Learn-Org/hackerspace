@@ -40,7 +40,7 @@ func excavate(to_excavate: Vector2i, source_id: int, floor_tile: Vector2i, wall_
 				floor_tile if current == to_excavate else wall_tile)
 
 func random_odd_num(upper_bound: int) -> int:
-	var rand = randi() % ((upper_bound / 2) - 1)
+	var rand = randi() % (int(round(upper_bound / 2.0)) - 1)
 	return (rand * 2) + 1
 
 func only_one_path(point: Vector2i) -> bool:
@@ -69,6 +69,20 @@ func get_single_free_neighbour(here: Vector2i) -> Vector2i:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	self.draw_map()
+	
+	$"/root/Signals".connect("next_level", func () -> void:
+		self.reset_map()
+		self.draw_map()
+	)
+
+func reset_map() -> void:
+	for i in range(width):
+		for j in range(height):
+			# delete cell
+			self.set_cell(0, Vector2i(i,j), -1, Vector2i(-1, -1),0)
+
+func draw_map():
 	# track nodes we could excavate from next
 	var excavated = [Vector2i(random_odd_num(width), random_odd_num(height))]
 	var endpoints = []
@@ -96,7 +110,8 @@ func _ready():
 				# However, my tile generation does not look for staircases. How to handle?
 				break
 	endpoints.shuffle()
-	self.set_cell(0,endpoints[0],TILESET_ID,Vector2i(1,0),0)
+	print(endpoints)
+	print(endpoints[0])
 	Signals.placed_exit.emit(endpoints[0], cell_quadrant_size)
 	var door_place = get_single_free_neighbour(endpoints[0])
 	Signals.placed_door.emit(door_place, cell_quadrant_size)

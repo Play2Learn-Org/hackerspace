@@ -54,9 +54,4 @@ sprite_frames = SubResource("SpriteFrames_yuvvp")
 frame_progress = 0.533061
 centered = false
 
-[connection signal="area_entered" from="KeyCollider" to="." method="_on_key_collider_area_entered"]
-[connection signal="area_exited" from="KeyCollider" to="." method="_on_key_collider_area_exited"]
-[connection signal="area_shape_entered" from="KeyCollider" to="." method="_on_key_collider_area_shape_entered"]
-[connection signal="area_shape_exited" from="KeyCollider" to="." method="_on_key_collider_area_shape_exited"]
 [connection signal="body_entered" from="KeyCollider" to="." method="_on_key_collider_body_entered"]
-[connection signal="body_exited" from="KeyCollider" to="." method="_on_key_collider_body_exited"]

@@ -46,9 +46,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ttgk2"]
-resource_name = "pause"
+resource_name = "completed"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -86,9 +98,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [1.0, 0.9]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_sbepx"]
-resource_name = "unpause"
+resource_name = "start"
 length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -126,15 +150,29 @@ tracks/2/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hici0"]
 _data = {
 "RESET": SubResource("Animation_6paxk"),
-"pause": SubResource("Animation_ttgk2"),
-"unpause": SubResource("Animation_sbepx")
+"completed": SubResource("Animation_ttgk2"),
+"start": SubResource("Animation_sbepx")
 }
 
 [node name="levelendmenu" type="ColorRect"]
+process_mode = 3
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
