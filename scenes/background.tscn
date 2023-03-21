@@ -1,0 +1,229 @@
+[gd_scene load_steps=13 format=3 uid="uid://ccfsxpy63pv23"]
+
+[ext_resource type="Texture2D" uid="uid://cpuxxuowjgax4" path="res://background/IMG_1488.PNG" id="1_45hho"]
+[ext_resource type="Texture2D" uid="uid://c7pjyqdq8oeib" path="res://background/IMG_1489.PNG" id="2_v2edc"]
+[ext_resource type="Texture2D" uid="uid://buv5g8j43gjdm" path="res://background/IMG_1490.PNG" id="3_0fgew"]
+[ext_resource type="Texture2D" uid="uid://b2uysu5ub6ne1" path="res://background/IMG_1491.PNG" id="4_etom3"]
+[ext_resource type="Texture2D" uid="uid://tp3bajvekjp" path="res://background/IMG_1492.PNG" id="5_qgbq8"]
+
+[sub_resource type="Animation" id="Animation_0c16c"]
+resource_name = "cirlce1appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dbbo8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle4:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_upiaa"]
+resource_name = "circle2appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pe670"]
+resource_name = "circle3appear"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x5are"]
+resource_name = "circle4appear"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ctrax"]
+resource_name = "animatecircles"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ctcgp"]
+_data = {
+"RESET": SubResource("Animation_dbbo8"),
+"animatecircles": SubResource("Animation_ctrax"),
+"circle2appear": SubResource("Animation_upiaa"),
+"circle3appear": SubResource("Animation_pe670"),
+"circle4appear": SubResource("Animation_x5are"),
+"cirlce1appear": SubResource("Animation_0c16c")
+}
+
+[node name="Background" type="Node2D"]
+
+[node name="Rectangle" type="TextureRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("1_45hho")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Circle1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("2_v2edc")
+expand_mode = 1
+
+[node name="Circle2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("3_0fgew")
+expand_mode = 1
+
+[node name="Circle3" type="TextureRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("4_etom3")
+expand_mode = 1
+
+[node name="Circle4" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1200.0
+offset_bottom = 1200.0
+texture = ExtResource("5_qgbq8")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "animatecircles"
+libraries = {
+"": SubResource("AnimationLibrary_ctcgp")
+}

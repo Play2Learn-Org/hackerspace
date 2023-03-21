@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crt8xry1q5dpg"]
+[gd_scene load_steps=13 format=3 uid="uid://crt8xry1q5dpg"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wuu25prh7c" path="res://scenes/player.tscn" id="1_fb6xu"]
 [ext_resource type="PackedScene" uid="uid://mdkdetaxlxdx" path="res://scenes/maze.tscn" id="1_lc4px"]
@@ -11,9 +11,12 @@
 [ext_resource type="FontFile" uid="uid://bjb5n85mku7e6" path="res://fonts/orange-juice-2.0.ttf" id="7_opci6"]
 [ext_resource type="Script" path="res://scenes/levelcounter.gd" id="8_qt57c"]
 [ext_resource type="PackedScene" uid="uid://dja2yfh8o8tcu" path="res://scenes/levelendmenu.tscn" id="9_gf17j"]
+[ext_resource type="PackedScene" uid="uid://ccfsxpy63pv23" path="res://scenes/background.tscn" id="12_orsdv"]
 
 [node name="Map1" type="Node2D"]
 script = ExtResource("1_ucdtq")
+
+[node name="Background" parent="." instance=ExtResource("12_orsdv")]
 
 [node name="Maze" parent="." instance=ExtResource("1_lc4px")]
 position = Vector2(-1, 0)
