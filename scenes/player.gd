@@ -51,6 +51,7 @@ func _ready():
 func _physics_process(_delta):
 	velocity = input_direction * SPEED
 	set_animation("idle" if velocity == Vector2.ZERO else "walk")
+	$"/root/Signals".emit_signal("start_idling" if velocity == Vector2.ZERO else "start_walking")
 	move_and_slide()
 
 func set_animation(animation):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crt8xry1q5dpg"]
+[gd_scene load_steps=21 format=3 uid="uid://crt8xry1q5dpg"]
 
 [ext_resource type="PackedScene" uid="uid://dq2wuu25prh7c" path="res://scenes/player.tscn" id="1_fb6xu"]
 [ext_resource type="PackedScene" uid="uid://mdkdetaxlxdx" path="res://scenes/maze.tscn" id="1_lc4px"]
@@ -12,6 +12,14 @@
 [ext_resource type="Script" path="res://scenes/levelcounter.gd" id="8_qt57c"]
 [ext_resource type="PackedScene" uid="uid://dja2yfh8o8tcu" path="res://scenes/levelendmenu.tscn" id="9_gf17j"]
 [ext_resource type="PackedScene" uid="uid://ccfsxpy63pv23" path="res://scenes/background.tscn" id="12_orsdv"]
+[ext_resource type="AudioStream" uid="uid://c8b02x5bh0y3b" path="res://audio/walking.wav" id="13_eeuua"]
+[ext_resource type="Script" path="res://scenes/AudioStreamPlayer.gd" id="14_dpvpe"]
+[ext_resource type="AudioStream" uid="uid://dmc42hc4i2fmm" path="res://audio/itemfound.wav" id="15_o3uop"]
+[ext_resource type="Script" path="res://scenes/ItemFoundPlayer.gd" id="16_qvi2q"]
+[ext_resource type="AudioStream" uid="uid://c026quf4vunkv" path="res://audio/dooropening.wav" id="17_bqlly"]
+[ext_resource type="Script" path="res://scenes/DoorOpenedPlayer.gd" id="18_p2tsb"]
+[ext_resource type="AudioStream" uid="uid://djqd6bj66d7na" path="res://audio/yeah.wav" id="19_2rurb"]
+[ext_resource type="Script" path="res://scenes/WinningPlayer.gd" id="19_7ymrn"]
 
 [node name="Map1" type="Node2D"]
 script = ExtResource("1_ucdtq")
@@ -95,3 +103,20 @@ grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="WalkingPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_eeuua")
+volume_db = -20.0
+script = ExtResource("14_dpvpe")
+
+[node name="ItemFoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_o3uop")
+script = ExtResource("16_qvi2q")
+
+[node name="DoorOpenedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_bqlly")
+script = ExtResource("18_p2tsb")
+
+[node name="WinningPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_2rurb")
+script = ExtResource("19_7ymrn")

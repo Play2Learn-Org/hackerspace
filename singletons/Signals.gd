@@ -12,3 +12,5 @@ signal next_level
 signal key_touched
 signal door_opened
 signal exit_reached
+signal start_walking
+signal start_idling

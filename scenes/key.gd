@@ -17,6 +17,7 @@ func _ready():
 		self.visible = true
 	)
 	$"/root/Signals".connect("next_level", func () -> void:
+		print("key event callback next_level")
 		self.reset_position()
 	)
 

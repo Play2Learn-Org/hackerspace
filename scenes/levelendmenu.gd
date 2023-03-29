@@ -10,11 +10,13 @@ func _ready():
 	$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton.pressed.connect(get_tree().quit)
 	
 	$"/root/Signals".connect("exit_reached", func () -> void:
+		print("levelendmenu exit_reached triggered")
 		self.visible = true
 		$AnimationPlayer.play("completed")
 		get_tree().paused = true
 	)
 	$"/root/Signals".connect("next_level", func () -> void:
+		print("levelendmenu exit_reached triggered")
 		$AnimationPlayer.play("start")
 		self.visible = false
 		get_tree().paused = false
